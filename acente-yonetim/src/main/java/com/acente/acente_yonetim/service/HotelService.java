@@ -32,4 +32,8 @@ public class HotelService {
         hotel.setHotelPhoneNumber(hotelDetails.getHotelPhoneNumber());
         return hotelRepository.save(hotel);
     }
+
+    public void deleteHotel(Long id) {
+        hotelRepository.deleteById(id);
+    }
 }
