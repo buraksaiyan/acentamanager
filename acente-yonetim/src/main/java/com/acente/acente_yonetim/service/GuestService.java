@@ -25,13 +25,6 @@ public class GuestService {
 
     public Guest updateGuest(Long id, Guest guestDetails) {
         Guest guest = guestRepository.findById(id).orElseThrow();
-        guest.setFirstName(guestDetails.getFirstName());
-        guest.setLastName(guestDetails.getLastName());
-        guest.setVoucherNumber(guestDetails.getVoucherNumber());
-        guest.setCheckInDate(guestDetails.getCheckInDate());
-        guest.setCheckOutDate(guestDetails.getCheckOutDate());
-        guest.setPhoneNumber(guestDetails.getPhoneNumber());
-        guest.setMailAddress(guestDetails.getMailAddress());
         if (guestDetails.getFirstName() != null) {
             guest.setFirstName(guestDetails.getFirstName());
         }

@@ -26,10 +26,6 @@ public class HotelService {
 
     public Hotel updateHotel(Long id, Hotel hotelDetails) {
         Hotel hotel = hotelRepository.findById(id).orElseThrow();
-        hotel.setHotelName(hotelDetails.getHotelName());
-        hotel.setHotelAddress(hotelDetails.getHotelAddress());
-        hotel.setHotelMailAddress(hotelDetails.getHotelMailAddress());
-        hotel.setHotelPhoneNumber(hotelDetails.getHotelPhoneNumber());
         if (hotelDetails.getHotelName() != null) {
             hotel.setHotelName(hotelDetails.getHotelName());
         }
