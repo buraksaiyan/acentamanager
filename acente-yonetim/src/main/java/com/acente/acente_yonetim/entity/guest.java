@@ -6,9 +6,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
-public class guest {
+public class Guest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String firstName;
+    private String lastName;
+    private String voucherNumber;
+    private String checkInDate;
+    private String checkOutDate;
+    private String phoneNumber;
+    private String mailAddress;
+    private String hotelName; //many to one relation to hotels
 }
