@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Guest {
@@ -18,5 +19,7 @@ public class Guest {
     private String checkOutDate;
     private String phoneNumber;
     private String mailAddress;
-    private String hotelName; //many to one relation to hotels
+
+    @ManyToOne
+    private Hotel hotel;
 }
