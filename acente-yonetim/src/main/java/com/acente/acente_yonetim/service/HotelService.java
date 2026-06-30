@@ -36,4 +36,21 @@ public class HotelService {
     public void deleteHotel(Long id) {
         hotelRepository.deleteById(id);
     }
+
+    public Hotel updateHotel(Long id, Hotel hotelDetails) {
+        Hotel hotel = hotelRepository.findById(id).orElseThrow();
+        if (hotelDetails.getHotelName() != null) {
+            hotel.setHotelName(hotelDetails.getHotelName());
+        }
+        if (hotelDetails.getHotelAddress() != null) {
+            hotel.setHotelAddress(hotelDetails.getHotelAddress());
+        }
+        if (hotelDetails.getHotelMailAddress() != null) {
+            hotel.setHotelMailAddress(hotelDetails.getHotelMailAddress());
+        }
+        if (hotelDetails.getHotelPhoneNumber() != null) {
+            hotel.setHotelPhoneNumber(hotelDetails.getHotelPhoneNumber());
+        }
+        return hotelRepository.save(hotel);
+    }
 }
