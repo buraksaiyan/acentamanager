@@ -59,4 +59,31 @@ public class GuestService {
     public void deleteGuest(Long id) {
         guestRepository.deleteById(id);
     }
+
+    public List<Guest> getSortedGuests(String sortBy, String direction) {
+        boolean asc = !"desc".equalsIgnoreCase(direction);
+        switch (sortBy.toLowerCase()) {
+            case "checkindate":
+                return asc ? guestRepository.findAllByOrderByCheckInDateAsc()
+                        : guestRepository.findAllByOrderByCheckInDateDesc();
+            case "checkoutdate":
+                return asc ? guestRepository.findAllByOrderByCheckOutDateAsc()
+                        : guestRepository.findAllByOrderByCheckOutDateDesc();
+            case "lastname":
+                return asc ? guestRepository.findAllByOrderByLastNameAsc()
+                        : guestRepository.findAllByOrderByLastNameDesc();
+            default:
+                return guestRepository.findAll();
+        }
+    }
+
+    public List<Guest> filterGuests(String voucherNumber, String lastName) {
+        if (voucherNumber != null && !voucherNumber.isEmpty()) {
+            return guestRepository.findByVoucherNumber(voucherNumber);
+        }
+        if (lastName != null && !lastName.isEmpty()) {
+            return guestRepository.findByLastNameContainingIgnoreCase(lastName);
+        }
+        return guestRepository.findAll();
+    }
 }
