@@ -32,15 +32,6 @@ public class GuestService {
         guest.setCheckOutDate(guestDetails.getCheckOutDate());
         guest.setPhoneNumber(guestDetails.getPhoneNumber());
         guest.setMailAddress(guestDetails.getMailAddress());
-        return guestRepository.save(guest);
-    }
-
-    public void deleteGuest(Long id) {
-        guestRepository.deleteById(id);
-    }
-
-    public Guest updateGuest(Long id, Guest guestDetails) {
-        Guest guest = guestRepository.findById(id).orElseThrow();
         if (guestDetails.getFirstName() != null) {
             guest.setFirstName(guestDetails.getFirstName());
         }
@@ -63,5 +54,9 @@ public class GuestService {
             guest.setMailAddress(guestDetails.getMailAddress());
         }
         return guestRepository.save(guest);
+    }
+
+    public void deleteGuest(Long id) {
+        guestRepository.deleteById(id);
     }
 }
