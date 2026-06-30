@@ -1,7 +1,6 @@
 package com.acente.acente_yonetim.entity;
 
 import java.util.List;
-import com.acente.acente_yonetim.entity.Guest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
