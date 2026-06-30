@@ -22,4 +22,68 @@ public class Guest {
 
     @ManyToOne
     private Hotel hotel;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getVoucherNumber() {
+        return voucherNumber;
+    }
+
+    public void setVoucherNumber(String voucherNumber) {
+        this.voucherNumber = voucherNumber;
+    }
+
+    public String getCheckInDate() {
+        return checkInDate;
+    }
+
+    public void setCheckInDate(String checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+
+    public String getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public void setCheckOutDate(String checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getMailAddress() {
+        return mailAddress;
+    }
+
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 }
