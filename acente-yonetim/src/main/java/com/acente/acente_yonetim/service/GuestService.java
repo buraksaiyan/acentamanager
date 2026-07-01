@@ -1,9 +1,13 @@
 package com.acente.acente_yonetim.service;
 
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.acente.acente_yonetim.entity.Guest;
 import com.acente.acente_yonetim.repository.GuestRepository;
 
+@Service
 public class GuestService {
     private final GuestRepository guestRepository;
 
