@@ -2,9 +2,12 @@ package com.acente.acente_yonetim.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.acente.acente_yonetim.entity.Hotel;
 import com.acente.acente_yonetim.repository.HotelRepository;
 
+@Service
 public class HotelService {
     private final HotelRepository hotelRepository;
 
