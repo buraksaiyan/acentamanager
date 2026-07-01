@@ -13,8 +13,13 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     const text = await res.text().catch(() => res.statusText);
     throw new Error(`${res.status} ${text}`);
   }
-  // 204 No Content
-  if (res.status === 204) return undefined as T;
+  // FIX: the original guard only skipped res.json() for status 204.
+  // Spring Boot DELETE endpoints return 200 OK with an *empty* body, so
+  // res.json() would blow up with "unexpected end of JSON" on every delete.
+  // Checking Content-Type is the correct signal: if the server didn't send
+  // application/json, there is nothing to parse.
+  const ct = res.headers.get("content-type");
+  if (!ct || !ct.includes("application/json")) return undefined as T;
   return res.json() as Promise<T>;
 }
 
