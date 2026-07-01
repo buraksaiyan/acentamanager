@@ -31,7 +31,7 @@ This starts a PostgreSQL container on `localhost:5432`.
 ./mvnw spring-boot:run
 ```
 
-Or open the project in IntelliJ/Eclipse and run `AcenteYonetimApplication`.
+Or open the project in any IDE and run `AcenteYonetimApplication`.
 
 The Spring Boot application runs **directly on the host machine** (not containerised). It connects to the Dockerised PostgreSQL instance via the settings in `src/main/resources/application.properties`.
 
